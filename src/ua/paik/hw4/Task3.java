@@ -6,14 +6,15 @@ public class Task3 {
     public static void main(String[] args) {
         int[] array = fillArray(2000, 1, 100);
 
-        System.out.println("Input array");
+        System.out.println("Input array:");
         printArray(array);
 
-        replaceEvenWithZero(array);
+        int[] modifiedArray = replaceEvenWithZero(array);
 
         System.out.println("Array after replacing even integers with zeros:");
-        printArray(array);
+        printArray(modifiedArray);
     }
+
     public static int[] fillArray(int size, int min, int max) {
         int[] array = new int[size];
         for (int i = 0; i < size; i++) {
@@ -22,12 +23,16 @@ public class Task3 {
         return array;
     }
 
-    public static void replaceEvenWithZero(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] % 2 == 0) {
-                array[i] = 0;
+    public static int[] replaceEvenWithZero(int[] array) {
+        int[] newArray = array.clone();
+
+        for (int i = 0; i < newArray.length; i++) {
+            if (newArray[i] % 2 == 0) {
+                newArray[i] = 0;
             }
         }
+
+        return newArray;
     }
 
     public static void printArray(int[] array) {

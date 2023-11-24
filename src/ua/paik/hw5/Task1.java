@@ -1,22 +1,19 @@
 package ua.paik.hw5;
 
-import java.util.Arrays;
-
 public class Task1 {
     public static void main(String[] args) {
         int rows = 4;
         int columns = 3;
-        int[][] inputArray = createArray(rows, columns);
+        int[][] originalArray = createArray(rows, columns);
 
         System.out.println("Input array:");
-        printArray(inputArray);
+        printArray(originalArray);
 
-        int[][] modifiedArray = negateEverySecondRow(inputArray);
+        int[][] modifiedArray = fillWithPositiveAndNegative(originalArray);
 
         System.out.println("Array after transformation:");
         printArray(modifiedArray);
     }
-
     public static int[][] createArray(int rows, int columns) {
         int[][] array = new int[rows][columns];
         int index = 1;
@@ -29,25 +26,19 @@ public class Task1 {
 
         return array;
     }
-
-    public static int[][] negateEverySecondRow(int[][] array) {
+    public static int[][] fillWithPositiveAndNegative(int[][] array) {
         int rows = array.length;
         int columns = array[0].length;
         int[][] newArray = new int[rows][columns];
 
         for (int i = 0; i < rows; i++) {
-            if (i % 2 == 1) {
-                for (int j = 0; j < columns; j++) {
-                    newArray[i][j] = -array[i][j];
-                }
-            } else {
-                newArray[i] = Arrays.copyOf(array[i], columns);
+            for (int j = 0; j < columns; j++) {
+                newArray[i][j] = (i % 2 == 0) ? array[i][j] : -array[i][j];
             }
         }
 
         return newArray;
     }
-
     public static void printArray(int[][] array) {
         for (int[] row : array) {
             for (int value : row) {
@@ -58,4 +49,3 @@ public class Task1 {
         System.out.println();
     }
 }
-
