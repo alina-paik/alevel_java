@@ -17,7 +17,6 @@ class Student {
         return (averageMark == 5) ? 100 : 80;
     }
 }
-
 class Aspirant extends Student {
     public String scientificWork;
 

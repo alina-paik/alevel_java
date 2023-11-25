@@ -3,6 +3,7 @@ package ua.paik.hw8;
 interface Pow {
     int pow(int number, int exponent);
 }
+
 public class Task2 {
     public static void main(String[] args) {
         Pow powFunction = (number, exponent) -> {
