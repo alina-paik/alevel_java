@@ -51,15 +51,10 @@ public class Task3 {
 
 
     public static void main(String[] args) {
-        fillArrayList();
-        fillLinkedList();
-
-        List<Integer> arrayList = new ArrayList<>();
-        fillArrayList();
+        List<Integer> arrayList = fillArrayList();
         getRandomElements(arrayList);
 
-        List<Integer> linkedList = new LinkedList<>();
-        fillLinkedList();
+        List<Integer> linkedList = fillLinkedList();
         getRandomElements(linkedList);
     }
 }
